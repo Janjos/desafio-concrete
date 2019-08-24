@@ -16,13 +16,13 @@ const appWrapper = path => {
 }
 
 describe('App', () => {
-    const Wrapper = appWrapper('/');
-
     it('renders without crash', () => {
         shallow(<App />)
     });
 
     it('renders home on "/" path', () => {
-        expect(Wrapper.find(HomePage)).toHaveLength(1);
-    })
+        const HomeWrapper = appWrapper('/');
+
+        expect(HomeWrapper.find(HomePage)).toHaveLength(1);
+    });
 })
