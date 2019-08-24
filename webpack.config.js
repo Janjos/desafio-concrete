@@ -6,7 +6,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/dist'),
-        filename:'index.build.js'
+        filename: 'index.build.js'
     },
 
     module: {
@@ -17,6 +17,22 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.(jpg|png|svg)/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name]-[hash:8].[ext]'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(jpg|png|svg)$/,
+                loader: 'image-webpack-loader',
+                enforce: 'pre'
             }
         ]
     },
