@@ -4,3 +4,8 @@ export const COLORS = {
     WHITE: 'white',
     SHADOW: 'rgba(0, 0, 0, 0.4)'
 };
+
+export const LOGO_SIZES = {
+    SMALL: 'small',
+    BIG: 'big'
+}
