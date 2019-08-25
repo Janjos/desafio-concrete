@@ -1,9 +1,9 @@
 import React from 'react';
-import { Logo } from '../Common/Logo';
+import { Logo } from '../common/Logo';
 import { LOGO_SIZES } from '../../constants';
 import searchIcon from '../../assets/icons/search_icon.png';
 
-export const HomePage = () => {
+export const HomePage = (props) => {
     return (
         <div>
             <Logo size={LOGO_SIZES.BIG}></Logo>

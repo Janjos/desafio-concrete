@@ -7,7 +7,7 @@ import { ResultPage } from './Result/ResultPage';
 const App = () => (
     <Switch>
         <Route exact path='/' component={HomePage}></Route>
-        <Route exact path='/user' component={ResultPage}></Route>
+        <Route exact path='/user/:username' component={ResultPage}></Route>
     </Switch>
 )
 
