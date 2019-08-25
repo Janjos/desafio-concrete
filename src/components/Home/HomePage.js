@@ -7,7 +7,7 @@ export const HomePage = () => {
     return (
         <div>
             <Logo size={LOGO_SIZES.BIG}></Logo>
-            <label for="search-box">
+            <label htmlFor="search-box">
                 Type the name of the Github user that you want to find
             </label>
             <div>
