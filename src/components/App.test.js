@@ -30,7 +30,7 @@ describe('Routes', () => {
     });
 
     it('renders result page on "/user" path', () => {
-        const ResultWrapper = appWrapper('/user');
+        const ResultWrapper = appWrapper('/user/username');
         
         expect(ResultWrapper.find(ResultPage)).toHaveLength(1);
     })
