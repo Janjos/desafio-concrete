@@ -18,12 +18,12 @@ export const ResultPage = ({match}) => {
 
     return (
         <div>
-            <div>
-                <img src={user.avatar_url} alt={`${user.name} avatar`} />
-                <h2> {user.login} </h2>
-                <h3>{user.name}</h3>
+            <div className='user'>
+                <img className='user_avatar' src={user.avatar_url} alt={`${user.name} avatar`} />
+                <h2 className='user_login'> {user.login} </h2>
+                <h3 className='user_name'>{user.name}</h3>
             </div>
-            <div>
+            <div className='repos'>
                 <ul>
                     {
                         repos.map(repo => (

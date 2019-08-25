@@ -1,20 +1,11 @@
 import React from 'react';
-import {shallow, mount} from 'enzyme';
-import { MemoryRouter } from 'react-router';
+import {shallow} from 'enzyme';
 
 import App from "./App";
 import { HomePage } from './Home/HomePage';
 import { ResultPage } from './Result/ResultPage';
-
-const appWrapper = path => {
-    return (
-        mount(
-            <MemoryRouter initialEntries={[path]}>
-                <App />
-            </MemoryRouter>
-        )
-    )
-}
+import { appWrapper } from '../testUtils';
+import {act} from 'react-test-renderer';
 
 describe('App', () => {
     it('renders without crash', () => {
