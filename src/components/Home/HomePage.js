@@ -4,7 +4,7 @@ import { LOGO_SIZES, GITHUB_API_USERS } from '../../constants';
 import searchIcon from '../../assets/icons/search_icon.png';
 import { Link } from 'react-router-dom';
 
-export const HomePage = (props) => {
+export const HomePage = ({history}) => {
     const [userName, setUserName] = useState('');
 
     const searchUser = () => {
@@ -24,7 +24,7 @@ export const HomePage = (props) => {
                     value={userName}
                     onChange={e => setUserName(e.target.value)}
                     onKeyPress={e => {
-                        (e.key == 'Enter') && props.history.push(`/user/${userName}`)
+                        (e.key == 'Enter') && history.push(`/user/${userName}`)
                     }}
                 />
                 <Link

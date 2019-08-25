@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import { getUser, getRepos } from '../../services/githubApi';
 import { match } from 'minimatch';
 
-export const ResultPage = ({match}) => {
+export const ResultPage = ({match, history}) => {
     const [user, setUser] = useState({});
     const [repos, setRepos] = useState([]);
     
     useEffect(() => {
         getUser(match.params.username).then(user => {
-            setUser(user);
+            user ? setUser(user) : history.push('/notfound')
         });
 
         getRepos(match.params.username).then(repos => {

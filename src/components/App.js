@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route} from 'react-router-dom';
+import { Switch, Route, Redirect} from 'react-router-dom';
 
 import { HomePage } from './Home/HomePage';
 import { ResultPage } from './Result/ResultPage';
@@ -10,6 +10,9 @@ const App = () => (
         <Route exact path='/' component={HomePage}></Route>
         <Route exact path='/user/:username' component={ResultPage}></Route>
         <Route exact path='/notfound' component={NotFound}></Route>
+        <Route path='*'>
+            <Redirect to='/'></Redirect>
+        </Route>
     </Switch>
 )
 
