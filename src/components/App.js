@@ -1,15 +1,14 @@
 import React from 'react'
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+
 import { HomePage } from './Home/HomePage';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { ResultPage } from './Result/ResultPage';
 
 const App = () => (
-    <BrowserRouter>
-        <Switch>
-            <Route exact path='/'>
-                <HomePage></HomePage>
-            </Route>
-        </Switch>
-    </BrowserRouter>
+    <Switch>
+        <Route exact path='/' component={HomePage}></Route>
+        <Route exact path='/user' component={ResultPage}></Route>
+    </Switch>
 )
 
 export default App;
