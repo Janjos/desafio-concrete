@@ -4,13 +4,17 @@ import { LOGO_SIZES, FONTS } from '../../constants';
 import styled from 'styled-components';
 
 export const Logo = ({size}) => {
+    const LogoContainer = styled.h1`
+        flex: 0 0 auto; 
+    `;
+
     const GitHubLogo = styled.span`
         font-family: ${FONTS.TITLE};
         font-weight: normal;
         ${
             (size == LOGO_SIZES.BIG)
             &&
-            'font-size: 2em;'
+            `font-size: 2em;`
         }
     `;
 
@@ -28,10 +32,10 @@ export const Logo = ({size}) => {
     `;
 
     return (
-        <h1>
+        <LogoContainer>
             <GitHubLogo> Github </GitHubLogo>
             <SearchLogo> Search </SearchLogo>
-        </h1>
+        </LogoContainer>
     );
 };
 
