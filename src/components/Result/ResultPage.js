@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { getUser, getRepos } from '../../services/githubApi';
-import { match } from 'minimatch';
 import { UserBox } from './UserBox';
 import { Column } from '../common/Column';
 import { ReposBox } from './ReposBox';
@@ -12,13 +11,16 @@ export const ResultPage = ({match, history}) => {
     
     useEffect(() => {
         getUser(match.params.username).then(user => {
-            user ? setUser(user) : history.push('/notfound')
+            console.log(user);
+            if (user) {
+                getRepos(match.params.username).then(repos => {
+                    setRepos(repos);
+                });
+            } else {
+                history.replace('/notfound');
+            }
         });
-
-        getRepos(match.params.username).then(repos => {
-            setRepos(repos);
-        });
-    }, []);
+    }, [match]);
 
     return (
         <Flexbox alignItems='start'>

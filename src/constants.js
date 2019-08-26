@@ -17,3 +17,9 @@ export const FONTS = {
 
 export const GITHUB_API = 'https://api.github.com';
 export const GITHUB_API_USERS = `${GITHUB_API}/users`;
+
+export const MEDIA_QUERY = {
+    MOBILE: '425px',
+    TABLET: '840px',
+    DESKTOP: '2560px'
+}
