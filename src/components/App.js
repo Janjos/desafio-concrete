@@ -1,9 +1,16 @@
 import React from 'react'
-import { Switch, Route, Redirect} from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 
 import { HomePage } from './Home/HomePage';
 import { ResultPage } from './Result/ResultPage';
 import { NotFound } from './NotFound/NotFound';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+      font-size: 16px;
+  }
+`
 
 const App = () => (
     <Switch>

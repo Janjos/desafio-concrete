@@ -10,5 +10,10 @@ export const LOGO_SIZES = {
     BIG: 'big'
 }
 
+export const FONTS = {
+    TITLE: 'monaco, monospace',
+    TEXT: 'Raleway, sans-serif'
+}
+
 export const GITHUB_API = 'https://api.github.com';
 export const GITHUB_API_USERS = `${GITHUB_API}/users`;
