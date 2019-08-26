@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { HomePage } from './Home/HomePage';
@@ -11,10 +11,15 @@ const AppContainer = styled.div`
     padding: 1em 2em;
 `;
 
-const App = () => {
+const App = (props) => {
+    console.log(props);
     return (
         <AppContainer>
-            <Header />
+            {
+                props.location.pathname !== '/'
+                &&
+                <Header />
+            }
             <Switch>
                 <Route exact path='/' component={HomePage}></Route>
                 <Route exact path='/user/:username' component={ResultPage}></Route>
@@ -27,4 +32,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default withRouter(App);
