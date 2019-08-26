@@ -6,8 +6,6 @@ import { SearchInput } from '../common/SearchInput';
 import { Flexbox } from '../styles/Flexbox';
 import { Column } from '../common/Column';
 
-
-
 export const HomePage = ({history}) => {
     return (
         <Flexbox

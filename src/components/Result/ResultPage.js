@@ -13,6 +13,7 @@ export const ResultPage = ({match, history}) => {
         getUser(match.params.username).then(user => {
             console.log(user);
             if (user) {
+                setUser(user);
                 getRepos(match.params.username).then(repos => {
                     setRepos(repos);
                 });

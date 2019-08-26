@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import searchIcon from '../../assets/icons/search_icon.png';
-import { COLORS, MEDIA_QUERY } from '../../constants';
+import { COLORS } from '../../constants';
 import { Flexbox } from '../styles/Flexbox';
 import { Input } from './Input';
 
