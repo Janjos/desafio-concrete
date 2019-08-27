@@ -25,7 +25,7 @@ const Label = styled.label`
     position: absolute;
 `;
 
-export const SearchInputBase = ({ history }) => {
+export const SearchInputBase = ({match, history }) => {
     const [userName, setUserName] = useState('');
 
     return (

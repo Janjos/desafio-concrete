@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { LOGO_SIZES, FONTS } from '../../constants';
+import { LOGO_SIZES, FONTS, MEDIA_QUERY } from '../../constants';
 
 export const Logo = ({ size }) => {
     const LogoContainer = styled.h1`
@@ -15,7 +15,7 @@ export const Logo = ({ size }) => {
         ${
             (size == LOGO_SIZES.BIG)
             &&
-            `font-size: 2em;`
+            `font-size: 4em;`
         }
 
         a {

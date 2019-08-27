@@ -1,20 +1,23 @@
 import React from 'react';
+import { RepoItem } from './RepoItem';
+import styled from 'styled-components';
+
+const ReposList = styled.ul`
+    padding: 0;
+`;
 
 export const ReposBox = ({ repos }) => {
     return (
         <div className='repos'>
-            <ul>
+            <ReposList>
                 {
                     repos
                     &&
                     repos.map(repo => (
-                        <li key={repo.id}>
-                            <h2> {repo.name} </h2>
-                            <p> {repo.description} </p>
-                        </li>
+                        <RepoItem key={repo.id} repo={repo} />
                     ))
                 }
-            </ul>
+            </ReposList>
         </div>
     )
 }

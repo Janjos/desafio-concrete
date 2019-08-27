@@ -28,5 +28,5 @@ export const LAYOUT = {
 export const MEDIA_QUERY = {
     MOBILE: '425px',
     TABLET: '840px',
-    DESKTOP: '2560px'
+    DESKTOP: '1800px'
 }
