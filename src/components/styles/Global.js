@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 !important;
 
     @media (max-width: ${MEDIA_QUERY.TABLET}) {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     @media (max-width: ${MEDIA_QUERY.MOBILE}) {

@@ -12,7 +12,6 @@ const AppContainer = styled.div`
 `;
 
 const App = (props) => {
-    console.log(props);
     return (
         <AppContainer>
             {

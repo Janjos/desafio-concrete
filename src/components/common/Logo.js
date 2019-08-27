@@ -7,7 +7,16 @@ import { LOGO_SIZES, FONTS } from '../../constants';
 
 export const Logo = ({ size }) => {
     const LogoContainer = styled.h1`
-        flex: 0 0 auto; 
+        flex: 0 0 auto;
+        white-space: nowrap;
+        font-size: 2.74vw;
+        margin: 0;
+
+        ${
+            (size == LOGO_SIZES.BIG)
+            &&
+            `font-size: 2em;`
+        }
 
         a {
             text-decoration: none;
@@ -18,11 +27,6 @@ export const Logo = ({ size }) => {
     const GitHubLogo = styled.span`
         font-family: ${FONTS.TITLE};
         font-weight: normal;
-        ${
-        (size == LOGO_SIZES.BIG)
-        &&
-        `font-size: 2em;`
-        }
     `;
 
     const SearchLogo = styled.span`
@@ -33,8 +37,7 @@ export const Logo = ({ size }) => {
         ${
         (size == LOGO_SIZES.BIG)
         &&
-        `font-size: 2em;
-             margin-left: -0.3em;`
+        `margin-left: -0.3em;`
         }
     `;
 

@@ -4,6 +4,8 @@ import { UserBox } from './UserBox';
 import { Column } from '../common/Column';
 import { ReposBox } from './ReposBox';
 import { Flexbox } from '../styles/Flexbox';
+import { LAYOUT } from '../../constants';
+import userMock from '../../../__mocks__/userMock';
 
 export const ResultPage = ({match, history}) => {
     const [user, setUser] = useState({});
@@ -11,12 +13,12 @@ export const ResultPage = ({match, history}) => {
     
     useEffect(() => {
         getUser(match.params.username).then(user => {
-            console.log(user);
-            if (user) {
-                setUser(user);
-                getRepos(match.params.username).then(repos => {
-                    setRepos(repos);
-                });
+            if (true) {
+                // setUser(user);
+                // getRepos(match.params.username).then(repos => {
+                //     setRepos(repos);
+                // });
+                setUser(userMock);
             } else {
                 history.replace('/notfound');
             }
@@ -24,11 +26,11 @@ export const ResultPage = ({match, history}) => {
     }, [match]);
 
     return (
-        <Flexbox alignItems='start'>
-            <Column width='30%'>
+        <Flexbox alignItems='start' justifyContent='space-between'>
+            <Column maxWidth={LAYOUT.COLUMN.LEFT} width={LAYOUT.COLUMN.LEFT}>
                 <UserBox user={user} />
             </Column>
-            <Column width='70%'>
+            <Column width={LAYOUT.COLUMN.RIGHT} padding='0 0 0 1.5em'>
                 <ReposBox repos={repos} />
             </Column>
         </Flexbox>

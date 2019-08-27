@@ -1,10 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const UserAvatar = styled.img`
+    width: 100%;
+`;
 
 export const UserBox = ({user}) => {
 
     return(
         <div className='user'>
-            <img className='user_avatar' src={user.avatar_url} alt={`${user.name} avatar`} />
+            <UserAvatar
+                className='user_avatar'
+                src={user.avatar_url}
+                alt={`${user.name} avatar`}
+            />
             <h2 className='user_name'>{user.name}</h2>
             <h3 className='user_login'> {user.login} </h3>
             <div className='user_meta'>
