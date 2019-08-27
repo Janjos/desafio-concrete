@@ -13,23 +13,23 @@ export const ResultPage = ({match, history}) => {
     const [user, setUser] = useState({});
     const [repos, setRepos] = useState([]);
     
-    useEffect(() => {
-        setUser(userMock);
-        setRepos(reposMock);
-    }, [match]);
-
     // useEffect(() => {
-    //     getUser(match.params.username).then(user => {
-    //         if (user) {
-    //             setUser(user);
-    //             getRepos(match.params.username).then(repos => {
-    //                 setRepos(repos);
-    //             });
-    //         } else {
-    //             history.replace('/notfound');
-    //         }
-    //     });
-    // }, [match.params.username]);
+    //     setUser(userMock);
+    //     setRepos(reposMock);
+    // }, [match]);
+
+    useEffect(() => {
+        getUser(match.params.username).then(user => {
+            if (user) {
+                setUser(user);
+                getRepos(match.params.username).then(repos => {
+                    setRepos(repos);
+                });
+            } else {
+                history.replace('/notfound');
+            }
+        });
+    }, [match.params.username]);
 
     return (
         <Flexbox alignItems='start' justifyContent='space-between'>
