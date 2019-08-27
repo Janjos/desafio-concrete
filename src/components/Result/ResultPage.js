@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { getUser, getRepos } from '../../services/githubApi';
-import { UserBox } from './UserBox';
+import { UserBox } from './UserBox/UserBox';
 import { Column } from '../common/Column';
 import { ReposBox } from './ReposBox';
 import { Flexbox } from '../styles/Flexbox';
