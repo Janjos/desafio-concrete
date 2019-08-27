@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { FONTS, COLORS } from '../../../constants';
 
 export const UserBoxContainer = styled.div`
-    margin-top: 3em;
-
     h2, h3, p {
         font-family: ${FONTS.TEXT};
         color: ${COLORS.SECONDARY};
