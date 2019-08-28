@@ -7,6 +7,7 @@ import { HomePage } from './Home/HomePage';
 import { ResultPage } from './Result/ResultPage';
 import { NotFound } from './NotFound/NotFound';
 import { Header } from './common/Header';
+import { ROUTES } from '../constants';
 
 const AppContainer = styled.div`
     padding: 1em 2em;
@@ -38,16 +39,16 @@ const App = ({ location, isTestEnviroment }) => {
     return (
         <AppContainer>
             {
-                location.pathname !== '/'
+                location.pathname !== ROUTES.HOME
                 &&
                 <Header />
             }
             <AppSwitch isTestEnviroment={isTestEnviroment}>
-                <Route exact path='/' component={HomePage}></Route>
-                <Route exact path='/user/:username' component={ResultPage}></Route>
-                <Route exact path='/notfound' component={NotFound}></Route>
+                <Route exact path={ROUTES.HOME} component={HomePage}></Route>
+                <Route exact path={ROUTES.RESULT.URL} component={ResultPage}></Route>
+                <Route exact path={ROUTES.NOTFOUND} component={NotFound}></Route>
                 <Route path='*'>
-                    <Redirect to='/'></Redirect>
+                    <Redirect to={ROUTES.HOME}></Redirect>
                 </Route>
             </AppSwitch>
         </AppContainer>

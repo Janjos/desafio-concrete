@@ -8,7 +8,7 @@ import { HomePage } from './Home/HomePage';
 import { ResultPage } from './Result/ResultPage';
 import { appWrapper } from '../testUtils';
 import { NotFound } from './NotFound/NotFound';
-import { GITHUB_API_USERS } from '../constants';
+import { GITHUB_API_USERS, ROUTES } from '../constants';
 import userMock from '../../__mocks__/userMock';
 
 describe('App', () => {
@@ -26,20 +26,20 @@ describe('Routes', () => {
         moxios.uninstall();
     })
 
-    it('renders home on "/" path', () => {
-        const HomeWrapper = appWrapper('/');
+    it('renders home on "home" path', () => {
+        const HomeWrapper = appWrapper(ROUTES.HOME);
 
         expect(HomeWrapper.find(HomePage)).toHaveLength(1);
     });
 
-    it('renders result page on "/user" path', async () => {
-        const ResultWrapper = await appWrapper('/user/timbl');
+    it('renders result page on "result" path', async () => {
+        const ResultWrapper = await appWrapper(`${ROUTES.RESULT.PATH}/timbl`);
 
-        expect(ResultWrapper.find(ResultPage)).toHaveLength(1);        
+        expect(ResultWrapper.find(ResultPage)).toHaveLength(1);
     });
 
-    it('renders not found page on "/notfound" path', () => {
-        const NotFoundWrapper = appWrapper('/notfound');
+    it('renders not found page on "notfound" path', () => {
+        const NotFoundWrapper = appWrapper(ROUTES.NOTFOUND);
 
         expect(NotFoundWrapper.find(NotFound)).toHaveLength(1);
     });
