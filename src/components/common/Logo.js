@@ -22,6 +22,14 @@ export const Logo = ({ size }) => {
             text-decoration: none;
             color: black;
         }
+
+        @media (max-width: ${MEDIA_QUERY.MOBILE}) {
+            ${
+                (size == LOGO_SIZES.BIG)
+                &&
+                `font-size: 10vw;`
+            }
+        }
     `;
 
     const GitHubLogo = styled.span`

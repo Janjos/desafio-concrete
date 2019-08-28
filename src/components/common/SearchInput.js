@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 import searchIcon from '../../assets/icons/search_icon.png';
-import { COLORS } from '../../constants';
+import { COLORS, MEDIA_QUERY } from '../../constants';
 import { Flexbox } from '../styles/Flexbox';
 import { Input } from './Input';
 
@@ -18,6 +18,14 @@ const SearchButton = styled.button`
     transition: all .3s ease;
     width: 8em;
     cursor: pointer;
+
+    @media (max-width: ${MEDIA_QUERY.TABLET}) {
+        height: 4em;
+    }
+
+    @media (max-width: ${MEDIA_QUERY.MOBILE}) {
+        height: 4.15em;
+    }
 
     &:hover {
         filter: brightness(105%);

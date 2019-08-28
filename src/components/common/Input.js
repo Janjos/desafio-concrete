@@ -11,4 +11,5 @@ export const Input = styled.input`
     width: 100%;
     font-size: 1.2em;
     color: ${COLORS.SECONDARY};
+    box-sizing: border-box;
 `;

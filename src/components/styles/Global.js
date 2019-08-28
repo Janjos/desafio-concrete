@@ -12,11 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     @media (max-width: ${MEDIA_QUERY.TABLET}) {
-        font-size: 13px;
-    }
-
-    @media (max-width: ${MEDIA_QUERY.MOBILE}) {
-        font-size: 10px;
+        font-size: 16px;
     }
 
     .switch-wrapper {

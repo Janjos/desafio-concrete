@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import { UserBoxContainer } from './UserBoxContainer';
 import organizationIcon from '../../../assets/icons/organization_icon.png';
