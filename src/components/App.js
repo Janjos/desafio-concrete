@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect, withRouter, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { AnimatedSwitch } from 'react-router-transition';
 
@@ -12,7 +12,29 @@ const AppContainer = styled.div`
     padding: 1em 2em;
 `;
 
-const App = ({ location }) => {
+const AppSwitch = ({ children, isTestEnviroment }) => {
+    return (
+        <>
+            {
+                isTestEnviroment
+                    ?
+                    <Switch> {children} </Switch>
+                    :
+                    <AnimatedSwitch
+                        atEnter={{ opacity: 0 }}
+                        atLeave={{ opacity: 1 }}
+                        atActive={{ opacity: 1 }}
+                        className="switch-wrapper"
+                        location={location}
+                    >
+                        {children}
+                    </AnimatedSwitch>
+            }
+        </>
+    )
+}
+
+const App = ({ location, isTestEnviroment }) => {
     return (
         <AppContainer>
             {
@@ -20,20 +42,14 @@ const App = ({ location }) => {
                 &&
                 <Header />
             }
-            <AnimatedSwitch
-                atEnter={{ opacity: 0 }}
-                atLeave={{ opacity: 1 }}
-                atActive={{ opacity: 1 }}
-                className="switch-wrapper"
-                location={location}
-            >
+            <AppSwitch isTestEnviroment={isTestEnviroment}>
                 <Route exact path='/' component={HomePage}></Route>
                 <Route exact path='/user/:username' component={ResultPage}></Route>
                 <Route exact path='/notfound' component={NotFound}></Route>
                 <Route path='*'>
                     <Redirect to='/'></Redirect>
                 </Route>
-            </AnimatedSwitch>
+            </AppSwitch>
         </AppContainer>
     );
 }

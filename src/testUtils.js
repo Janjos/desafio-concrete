@@ -10,7 +10,7 @@ export const appWrapper = path => {
     return (
         mount(
             <MemoryRouter initialEntries={[path]}>
-                <App />
+                <App isTestEnviroment={true} />
             </MemoryRouter>
         )
     )
