@@ -61,7 +61,10 @@ export const SearchInputBase = ({match, history }) => {
                     value={userName}
                     onChange={e => setUserName(e.target.value)}
                     onKeyPress={e => {
-                        (e.key == 'Enter') && searchUser(e)
+                        if (e.key == 'Enter') {
+                          searchUser(e);
+                          e.target.blur();
+                        }
                     }}
                 />
 
