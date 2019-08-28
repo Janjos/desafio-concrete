@@ -8,12 +8,21 @@ import { COLORS } from '../../constants';
 import { Flexbox } from '../styles/Flexbox';
 import { Input } from './Input';
 
-const SearchButton = styled.span`
+const SearchButton = styled.button`
     display: block;
-    padding: 0.5em 2em;
     background: ${COLORS.PRIMARY};
-    height: 2em;
+    height: 4em;
     box-shadow: 0 0 3px ${COLORS.SHADOW};
+    border: none;
+    padding: 0.8em;
+    transition: all .3s ease;
+    width: 8em;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(105%);
+        transform: scale(1.05);
+    }
 
     img {
         height: 100%;
@@ -28,6 +37,10 @@ const Label = styled.label`
 export const SearchInputBase = ({match, history }) => {
     const [userName, setUserName] = useState('');
 
+    const searchUser = () => {
+        userName && history.push(`/user/${userName}`);
+    }
+
     return (
         <React.Fragment>
             <Label htmlFor="search-box">
@@ -40,17 +53,16 @@ export const SearchInputBase = ({match, history }) => {
                     value={userName}
                     onChange={e => setUserName(e.target.value)}
                     onKeyPress={e => {
-                        (e.key == 'Enter') && history.push(`/user/${userName}`)
+                        (e.key == 'Enter') && searchUser(e)
                     }}
                 />
 
-                <Link
-                    to={`/user/${userName}`}
+                <SearchButton
+                    src={searchIcon}
+                    onClick={() => searchUser()}
                 >
-                    <SearchButton src={searchIcon}>
-                        <img src={searchIcon} alt='Search user' />
-                    </SearchButton>
-                </Link>
+                    <img src={searchIcon} alt='Search user' />
+                </SearchButton>
             </Flexbox>
         </React.Fragment>
     );
