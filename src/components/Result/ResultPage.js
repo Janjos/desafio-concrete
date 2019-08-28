@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { getUser, getRepos } from '../../services/githubApi';
 import { UserBox } from './UserBox';
-import { Column } from '../common/Column';
+import { Column } from '../styles/Column';
 import { ReposBox } from './ReposBox';
 import { Flexbox } from '../styles/Flexbox';
 import { LAYOUT } from '../../constants';

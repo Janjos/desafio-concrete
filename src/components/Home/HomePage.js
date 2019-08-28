@@ -4,7 +4,7 @@ import { Logo } from '../common/Logo';
 import { LOGO_SIZES } from '../../constants';
 import { SearchInput } from '../common/SearchInput';
 import { Flexbox } from '../styles/Flexbox';
-import { Column } from '../common/Column';
+import { Column } from '../styles/Column';
 
 export const HomePage = ({history}) => {
     return (

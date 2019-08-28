@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { SearchInput } from './SearchInput';
 import { Logo } from './Logo';
 import { Flexbox } from '../styles/Flexbox';
-import { Column } from './Column';
+import { Column } from '../styles/Column';
 import { MEDIA_QUERY, LAYOUT } from '../../constants';
 
 const HeaderContainer = styled.div`
