@@ -15,29 +15,29 @@ export const ResultPage = ({ match, history }) => {
     const [repos, setRepos] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    // useEffect(() => {
-    //     setUser(userMock);
-    //     setRepos(reposMock);
-    // }, [match]);
-
     useEffect(() => {
-        setLoading(true);
+        setUser(userMock);
+        setRepos(reposMock);
+    }, [match]);
 
-        getUser(match.params.username).then(user => {
-            if (user) {
-                setUser(user);
-                getRepos(match.params.username).then(repos => {
-                    setRepos(repos);
-                }).then(() => setLoading(false));
-            } else {
-                history.replace('/notfound');
-                setLoading(false);
-            }
-        });
-    }, [match.params.username]);
+    // useEffect(() => {
+    //     setLoading(true);
+
+    //     getUser(match.params.username).then(user => {
+    //         if (user) {
+    //             setUser(user);
+    //             getRepos(match.params.username).then(repos => {
+    //                 setRepos(repos);
+    //             }).then(() => setLoading(false));
+    //         } else {
+    //             history.replace('/notfound');
+    //             setLoading(false);
+    //         }
+    //     });
+    // }, [match.params.username]);
 
     return (
-        <Loading isLoading={loading} className='header_margin'>
+        <Loading isLoading={loading}>
             <Flexbox alignItems='start' justifyContent='space-between'>
                 <Column maxWidth={LAYOUT.COLUMN.LEFT} width={LAYOUT.COLUMN.LEFT}>
                     <UserBox user={user} />

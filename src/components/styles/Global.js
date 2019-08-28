@@ -18,5 +18,16 @@ export const GlobalStyle = createGlobalStyle`
     @media (max-width: ${MEDIA_QUERY.MOBILE}) {
         font-size: 10px;
     }
+
+    .switch-wrapper {
+      position: relative;
+    }
+    
+    .switch-wrapper > div {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
   }
 `;

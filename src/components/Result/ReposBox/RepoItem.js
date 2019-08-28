@@ -4,7 +4,11 @@ import { FONTS, COLORS } from '../../../constants';
 import starIcon from '../../../assets/icons/star_icon.png';
 
 const RepoItemContainer = styled.div`
-    margin-top: 2em;
+    margin-top: 0;
+
+    &:not(:first-child) {
+        margin-top: 2em;
+    }
     
     h2 {
         font-family: ${FONTS.TEXT};

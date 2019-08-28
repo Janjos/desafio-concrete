@@ -1,6 +1,7 @@
 import React from 'react'
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import { AnimatedSwitch } from 'react-router-transition';
 
 import { HomePage } from './Home/HomePage';
 import { ResultPage } from './Result/ResultPage';
@@ -11,22 +12,28 @@ const AppContainer = styled.div`
     padding: 1em 2em;
 `;
 
-const App = (props) => {
+const App = ({ location }) => {
     return (
         <AppContainer>
             {
-                props.location.pathname !== '/'
+                location.pathname !== '/'
                 &&
                 <Header />
             }
-            <Switch>
+            <AnimatedSwitch
+                atEnter={{ opacity: 0 }}
+                atLeave={{ opacity: 1 }}
+                atActive={{ opacity: 1 }}
+                className="switch-wrapper"
+                location={location}
+            >
                 <Route exact path='/' component={HomePage}></Route>
                 <Route exact path='/user/:username' component={ResultPage}></Route>
                 <Route exact path='/notfound' component={NotFound}></Route>
                 <Route path='*'>
                     <Redirect to='/'></Redirect>
                 </Route>
-            </Switch>
+            </AnimatedSwitch>
         </AppContainer>
     );
 }

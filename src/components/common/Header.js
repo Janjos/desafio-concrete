@@ -7,6 +7,8 @@ import { Column } from './Column';
 import { MEDIA_QUERY, LAYOUT } from '../../constants';
 
 const HeaderContainer = styled.div`
+    margin-bottom: 3em;
+    
     @media (max-width: ${MEDIA_QUERY.TABLET}) {
         .left-column {
             display: none;

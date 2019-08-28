@@ -10,7 +10,7 @@ export const HomePage = ({history}) => {
     return (
         <Flexbox
             direction='column'
-            height='100vh'
+            height='calc(100vh - 5em)'
             maxWidth='80vw'
             margin='-3.5em auto 0 auto'
         >

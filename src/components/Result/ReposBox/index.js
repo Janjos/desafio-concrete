@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const ReposList = styled.ul`
     padding: 0;
+    margin: 0;
 `;
 
 export const ReposBox = ({ repos }) => {
