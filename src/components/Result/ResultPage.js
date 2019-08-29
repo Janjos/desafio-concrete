@@ -9,6 +9,7 @@ import { Flexbox } from '../styles/Flexbox';
 import { LAYOUT } from '../../constants';
 import { Loading } from '../common/Loading';
 import { getUserStars } from './UserBox/userHelpers';
+import axios from 'axios';
 
 export const ResultPage = ({ match, history }) => {
     const [user, setUser] = useState({});
@@ -17,29 +18,28 @@ export const ResultPage = ({ match, history }) => {
 
     useEffect(() => {
         setLoading(true);
-        
+        let isSubscribed = true;
+
         let fetchedUser = {};
-        getUser(match.params.username)
-        .then(user => fetchedUser = user)
-        .then(getRepos(match.params.username)
-        .then(repos => {
-            setRepos(repos);
-            fetchedUser.stars = getUserStars(repos);
-            setUser(fetchedUser);
-        }))
-        
 
         getUser(match.params.username).then(user => {
-            if (user) {
-                setUser(user);
-                getRepos(match.params.username).then(repos => {
+            if (user && isSubscribed) {
+                fetchedUser = user;
+
+                getRepos(match.params.username)
+                .then(repos => {
                     setRepos(repos);
-                }).then(() => setLoading(false));
+                    fetchedUser.stars = getUserStars(repos);
+                    setUser(fetchedUser);
+                    setLoading(false);
+                });
             } else {
                 history.replace('/notfound');
-                setLoading(false);
             }
+
+            return () => isSubscribed = false;
         });
+
     }, [match.params.username]);
 
     const ResultPageContainer = styled.div`

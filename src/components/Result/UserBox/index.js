@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { UserBoxContainer } from './UserBoxContainer';
 import organizationIcon from '../../../assets/icons/organization_icon.png';
@@ -7,7 +6,6 @@ import locationIcon from '../../../assets/icons/location_icon.png';
 import starIcon from '../../../assets/icons/star_icon.png';
 import repositorieIcon from '../../../assets/icons/organization_icon.png';
 import followersIcon from '../../../assets/icons/followers_icon.png';
-import { Flexbox } from '../../styles/Flexbox';
 import { UserBoxItem } from './UserBoxItem';
 
 export const UserBox = ({ user }) => {
@@ -25,11 +23,11 @@ export const UserBox = ({ user }) => {
             </div>
             
             <div className='user_meta'>
-                <UserBoxItem icon={organizationIcon} text={user.company}/>
-                <UserBoxItem icon={locationIcon} text={user.location}/>
-                <UserBoxItem icon={starIcon} text={user.stars}/>
-                <UserBoxItem icon={repositorieIcon} text={user.public_repos}/>
-                <UserBoxItem icon={followersIcon} text={user.followers}/>
+                { user.company && <UserBoxItem icon={organizationIcon} text={user.company}/> }
+                { user.location && <UserBoxItem icon={locationIcon} text={user.location}/> }
+                { user.stars && <UserBoxItem icon={starIcon} text={user.stars}/> }
+                { user.public_repos && <UserBoxItem icon={repositorieIcon} text={user.public_repos}/> }
+                { user.followers && <UserBoxItem icon={followersIcon} text={user.followers}/>}
             </div>
         </UserBoxContainer>
     )
