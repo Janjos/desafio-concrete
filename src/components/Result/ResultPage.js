@@ -28,9 +28,11 @@ export const ResultPage = ({ match, history }) => {
 
                 getRepos(match.params.username)
                 .then(repos => {
-                    setRepos(repos);
-                    fetchedUser.stars = getUserStars(repos);
-                    setUser(fetchedUser);
+                    if(repos.length) {
+                        setRepos(repos);
+                        fetchedUser.stars = getUserStars(repos);
+                        setUser(fetchedUser);
+                    }
                     setLoading(false);
                 });
             } else {

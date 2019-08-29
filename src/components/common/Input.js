@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS } from '../../constants';
+import { COLORS, MEDIA_QUERY } from '../../constants';
 
 export const Input = styled.input`
     background: ${COLORS.WHITE};
@@ -11,5 +11,8 @@ export const Input = styled.input`
     width: 100%;
     font-size: 1.2em;
     color: ${COLORS.SECONDARY};
-    box-sizing: border-box;
+
+    @media (max-width: ${MEDIA_QUERY.TABLET}) {
+        width: 80%;
+    }
 `;

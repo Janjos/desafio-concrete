@@ -3,6 +3,12 @@ import { createGlobalStyle } from 'styled-components';
 import { MEDIA_QUERY } from '../../constants';
 
 export const GlobalStyle = createGlobalStyle`
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
   body {
     font-size: 16px;
     margin: 0 !important;

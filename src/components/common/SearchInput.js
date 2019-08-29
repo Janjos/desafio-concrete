@@ -4,27 +4,22 @@ import styled from 'styled-components';
 
 import searchIcon from '../../assets/icons/search_icon.png';
 import { COLORS, MEDIA_QUERY } from '../../constants';
-import { Flexbox } from '../styles/Flexbox';
 import { Input } from './Input';
 import { userBrowser } from '../../helpers';
 
 const SearchButton = styled.button`
     display: block;
     background: ${COLORS.PRIMARY};
-    height: ${userBrowser.isChrome ? '3.6em' : '4em'};
-    box-shadow: 0 0 3px ${COLORS.SHADOW};
+    box-shadow: 1px 0 3px ${COLORS.SHADOW};
     border: none;
-    padding: ${userBrowser.isChrome ? '0.6em' : '0.8em'}
+    padding: 0.8em;
     transition: all .3s ease;
     width: 8em;
     cursor: pointer;
 
     @media (max-width: ${MEDIA_QUERY.TABLET}) {
-        height: ${userBrowser.isChrome ? '3.6em' : '4em'};
-    }
-
-    @media (max-width: ${MEDIA_QUERY.MOBILE}) {
-        height: ${userBrowser.isChrome ? '3.5em' : '4.15em'};
+        padding: 0.3em 1em;
+        width: 20%;
     }
 
     &:hover {
@@ -33,7 +28,7 @@ const SearchButton = styled.button`
     }
 
     img {
-        height: 100%;
+        height: 80%;
     }
 `;
 
@@ -42,7 +37,12 @@ const Label = styled.label`
     position: absolute;
 `;
 
-const SearchInputBase = ({match, history }) => {
+const SearchForm = styled.div`
+    display: flex;
+    width: 100%;
+`;
+
+const SearchInputBase = ({ match, history }) => {
     const [userName, setUserName] = useState('');
 
     const searchUser = () => {
@@ -54,27 +54,27 @@ const SearchInputBase = ({match, history }) => {
             <Label htmlFor="search-box">
                 Type the name of the Github user that you want to find
             </Label>
-            <Flexbox>
-                <Input
-                    type="text"
-                    id="search-box"
-                    value={userName}
-                    onChange={e => setUserName(e.target.value)}
-                    onKeyPress={e => {
-                        if (e.key == 'Enter') {
-                          searchUser(e);
-                          e.target.blur();
-                        }
-                    }}
-                />
+                <SearchForm>
+                    <Input
+                        type="text"
+                        id="search-box"
+                        value={userName}
+                        onChange={e => setUserName(e.target.value)}
+                        onKeyPress={e => {
+                            if (e.key == 'Enter') {
+                                searchUser(e);
+                                e.target.blur();
+                            }
+                        }}
+                    />
 
-                <SearchButton
-                    src={searchIcon}
-                    onClick={() => searchUser()}
-                >
-                    <img src={searchIcon} alt='Search user' />
-                </SearchButton>
-            </Flexbox>
+                    <SearchButton
+                        src={searchIcon}
+                        onClick={() => searchUser()}
+                    >
+                        <img src={searchIcon} alt='Search user' />
+                    </SearchButton>
+                </SearchForm>
         </React.Fragment>
     );
 }
