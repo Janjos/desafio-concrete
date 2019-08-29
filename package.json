@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "deploy": "webpack --mode production && firebase deploy"
   },
   "keywords": [],
   "author": "",
