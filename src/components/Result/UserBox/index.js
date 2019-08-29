@@ -23,11 +23,11 @@ export const UserBox = ({ user }) => {
             </div>
             
             <div className='user_meta'>
-                { user.company && <UserBoxItem icon={organizationIcon} text={user.company}/> }
-                { user.location && <UserBoxItem icon={locationIcon} text={user.location}/> }
+                { user.company ? <UserBoxItem icon={organizationIcon} text={user.company}/> : '' }
+                { user.location ?  <UserBoxItem icon={locationIcon} text={user.location}/> : ''}
                 <UserBoxItem icon={starIcon} text={user.stars || 0}/>
-                { user.public_repos && <UserBoxItem icon={repositorieIcon} text={user.public_repos}/> }
-                { user.followers && <UserBoxItem icon={followersIcon} text={user.followers}/>}
+                { user.public_repos ? <UserBoxItem icon={repositorieIcon} text={user.public_repos}/> : '' }
+                { user.followers ? <UserBoxItem icon={followersIcon} text={user.followers}/> : ''}
             </div>
         </UserBoxContainer>
     )
