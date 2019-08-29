@@ -12,11 +12,16 @@ const RepoItemContainer = styled.div`
         margin-top: 2em;
     }
     
-    h2 {
+    a {
         font-family: ${FONTS.TEXT};
         color: ${COLORS.PRIMARY};
         margin: 0;
-        font-size: 2em;
+        text-decoration: none;
+
+        h2 {
+            font-size: 2em;
+            margin: 0;
+        }
     }
 
     p {
@@ -36,10 +41,14 @@ const Stars = styled.div`
 
 `;
 
-export const RepoItem = ({repo}) => {
+export const RepoItem = ({ repo }) => {
     return (
         <RepoItemContainer>
-            <h2> {repo.name} </h2>
+            <a href={repo.html_url} target='_blank'>
+                <h2>
+                    {repo.name}
+                </h2>
+            </a>
             <p> {repo.description} </p>
             <Stars>
                 <img src={starIcon} />

@@ -38,7 +38,7 @@ export const UserBoxContainer = styled.div`
 
         .user {
             &_avatar {
-                width: 80%;
+                width: 60%;
             }
 
             &_username {
