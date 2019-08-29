@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import { FONTS, COLORS } from '../../../constants';
 import starIcon from '../../../assets/icons/star_icon.png';
 
@@ -45,4 +47,8 @@ export const RepoItem = ({repo}) => {
             </Stars>
         </RepoItemContainer>
     );
+}
+
+RepoItem.propTypes = {
+    repo: PropTypes.object.isRequired
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { UserBoxContainer } from './UserBoxContainer';
 import organizationIcon from '../../../assets/icons/organization_icon.png';
@@ -9,7 +10,6 @@ import followersIcon from '../../../assets/icons/followers_icon.png';
 import { UserBoxItem } from './UserBoxItem';
 
 export const UserBox = ({ user }) => {
-
     return (
         <UserBoxContainer>
             <img
@@ -31,4 +31,8 @@ export const UserBox = ({ user }) => {
             </div>
         </UserBoxContainer>
     )
+}
+
+UserBox.propTypes = {
+    user: PropTypes.object.isRequired
 }

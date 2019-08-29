@@ -8,7 +8,7 @@ ReactDOM.render(
     <React.Fragment>
         <GlobalStyle />
         <BrowserRouter>
-            <App isTestEnviroment={false} />
+            <App />
         </BrowserRouter>
     </React.Fragment>
     , document.getElementById('app'))

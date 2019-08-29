@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Redirect, withRouter, Switch } from 'react-router-dom';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { AnimatedSwitch } from 'react-router-transition';
 
 import { HomePage } from './Home/HomePage';
@@ -53,6 +54,14 @@ const App = ({ location, isTestEnviroment }) => {
             </AppSwitch>
         </AppContainer>
     );
+}
+
+App.defaultProps = {
+    isTestEnviroment: false
+}
+
+App.propTypes = {
+    isTestEnviroment: PropTypes.bool.isRequired
 }
 
 export default withRouter(App);

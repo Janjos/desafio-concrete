@@ -49,5 +49,6 @@ export const Loading = (({isLoading, children, className}) => {
 })
 
 Loading.propTypes = {
-    isLoading: PropTypes.bool.isRequired
+    isLoading: PropTypes.bool.isRequired,
+    className: PropTypes.string
 }

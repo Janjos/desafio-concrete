@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { Flexbox } from "../../styles/Flexbox";
 
@@ -31,4 +32,9 @@ export const UserBoxItem = ({ icon, text }) => {
             </Flexbox>
         </IconContainer>
     )
+}
+
+UserBoxItem.propTypes = {
+    icon: PropTypes.string.isRequired,
+    text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 }

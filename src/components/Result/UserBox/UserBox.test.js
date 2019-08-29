@@ -13,7 +13,7 @@ describe('User Box', () => {
 
 describe('UserBox Item', () => {
     it('renders without crash', () => {
-        shallow(<UserBoxItem />);
+        shallow(<UserBoxItem icon='' text={0} />);
     })
 });
 

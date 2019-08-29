@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { RepoItem } from './RepoItem';
 import styled from 'styled-components';
 
@@ -21,4 +23,8 @@ export const ReposBox = ({ repos }) => {
             </ReposList>
         </div>
     )
+}
+
+ReposBox.propTypes = {
+    repos: PropTypes.arrayOf(PropTypes.object).isRequired
 }
