@@ -44,5 +44,5 @@ export const RepoItem = ({repo}) => {
                 <p>{repo.stargazers_count}</p>
             </Stars>
         </RepoItemContainer>
-    )
+    );
 }
