@@ -7,24 +7,25 @@ import searchIcon from '../../assets/icons/search_icon.png';
 import { COLORS, MEDIA_QUERY } from '../../constants';
 import { Flexbox } from '../styles/Flexbox';
 import { Input } from './Input';
+import { userBrowser } from '../../helpers';
 
 const SearchButton = styled.button`
     display: block;
     background: ${COLORS.PRIMARY};
-    height: 4em;
+    height: ${userBrowser.isChrome ? '3.6em' : '4em'};
     box-shadow: 0 0 3px ${COLORS.SHADOW};
     border: none;
-    padding: 0.8em;
+    padding: ${userBrowser.isChrome ? '0.6em' : '0.8em'}
     transition: all .3s ease;
     width: 8em;
     cursor: pointer;
 
     @media (max-width: ${MEDIA_QUERY.TABLET}) {
-        height: 4em;
+        height: ${userBrowser.isChrome ? '3.6em' : '4em'};
     }
 
     @media (max-width: ${MEDIA_QUERY.MOBILE}) {
-        height: 4.15em;
+        height: ${userBrowser.isChrome ? '3.5em' : '4.15em'};
     }
 
     &:hover {
