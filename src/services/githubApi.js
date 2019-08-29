@@ -18,3 +18,17 @@ export const getRepos = (username) => (
             return null;
         })
 );
+
+// export const getUserWithRepos = async (username) => {
+//     const user = await getUser(username);
+//     const repos = await getRepos(username);
+//     const stars = repos.reduce((stars, repo) => {
+//         const star = repo.stargazers_count;
+//         return (star + stars);
+//     });
+//     return {
+//         user: user,
+//         repos: repos,
+//         stars: stars
+//     }
+// }

@@ -27,7 +27,7 @@ export const UserBox = ({ user }) => {
             <div className='user_meta'>
                 <UserBoxItem icon={organizationIcon} text={user.company}/>
                 <UserBoxItem icon={locationIcon} text={user.location}/>
-                <UserBoxItem icon={starIcon} text={'13'}/>
+                <UserBoxItem icon={starIcon} text={user.stars}/>
                 <UserBoxItem icon={repositorieIcon} text={user.public_repos}/>
                 <UserBoxItem icon={followersIcon} text={user.followers}/>
             </div>

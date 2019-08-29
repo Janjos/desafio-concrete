@@ -7,22 +7,27 @@ import { Column } from '../styles/Column';
 import { ReposBox } from './ReposBox';
 import { Flexbox } from '../styles/Flexbox';
 import { LAYOUT } from '../../constants';
-import userMock from '../../../__mocks__/userMock';
-import reposMock from '../../../__mocks__/reposMock';
 import { Loading } from '../common/Loading';
+import { getUserStars } from './UserBox/userHelpers';
 
 export const ResultPage = ({ match, history }) => {
     const [user, setUser] = useState({});
     const [repos, setRepos] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    // useEffect(() => {
-    //     setUser(userMock);
-    //     setRepos(reposMock);
-    // }, [match]);
-
     useEffect(() => {
         setLoading(true);
+        
+        let fetchedUser = {};
+        getUser(match.params.username)
+        .then(user => fetchedUser = user)
+        .then(getRepos(match.params.username)
+        .then(repos => {
+            setRepos(repos);
+            fetchedUser.stars = getUserStars(repos);
+            setUser(fetchedUser);
+        }))
+        
 
         getUser(match.params.username).then(user => {
             if (user) {
