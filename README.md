@@ -1,6 +1,5 @@
 # Desafio Concrete
-
-Simples SPA construída em React, que realiza buscas de perfis e seus respectivos repositórios no Github.
+SPA construída em React, que realiza buscas de perfis e seus respectivos repositórios no Github.
 Você pode vê-lo funcionando em:
 
 https://desafio-concrete-dead1.firebaseapp.com/
