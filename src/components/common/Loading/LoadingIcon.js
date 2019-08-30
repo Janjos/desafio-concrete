@@ -1,15 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLORS } from '../../../constants';
+import { COLORS, MEDIA_QUERY } from '../../../constants';
 
 const LoadingIconContainer = styled.div`
     display: inline-block;
     position: relative;
     width: 64px;
     height: 64px;
-    transform: scale(2);
+    box-sizing: content-box;
+
+    @media(min-width: ${MEDIA_QUERY.TABLET}) {
+        transform: scale(2);
+    }
 
     & div {
+        box-sizing: content-box;
         position: absolute;
         border: 8px solid ${COLORS.PRIMARY};
         opacity: 1;

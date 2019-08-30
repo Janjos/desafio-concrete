@@ -12,8 +12,8 @@ const LoadingContainer = styled.div`
     position: relative;
 
     &.show {
-        max-height: calc(100vh - 12em);
-        min-height: calc(100vh - 12em);
+        max-height: calc(100vh - 14em);
+        min-height: calc(100vh - 14em);
     }
 `;
 
