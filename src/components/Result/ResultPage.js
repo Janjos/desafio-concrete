@@ -49,7 +49,7 @@ export const ResultPage = ({ match, history }) => {
     `;
 
     return (
-        <Loading isLoading={true}>
+        <Loading isLoading={loading}>
             <ResultPageContainer>
                 <Flexbox
                     alignItems='start'
